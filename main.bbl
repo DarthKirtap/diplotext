@@ -1,0 +1,22 @@
+\begin{thebibliography}{1}
+
+\bibitem{history}
+Bohdan Macukow.
+\newblock Neural networks -- state of art, brief history, basic models and
+  architecture.
+\newblock In Khalid Saeed and W{\l}adys{\l}aw Homenda, editors, {\em Computer
+  Information Systems and Industrial Management}, pages 3--14, Cham, 2016.
+  Springer International Publishing.
+
+\bibitem{nvm}
+Hai Nguyen and Hung La.
+\newblock Review of deep reinforcement learning for robot manipulation.
+\newblock In {\em 2019 Third IEEE International Conference on Robotic Computing
+  (IRC)}, pages 590--595, 2019.
+
+\bibitem{activerobot}
+Youssef Zaky, Gaurav Paruthi, Bryan Tripp, and James Bergstra.
+\newblock Active perception and representation for robotic manipulation.
+\newblock {\em CoRR}, abs/2003.06734, 2020.
+
+\end{thebibliography}

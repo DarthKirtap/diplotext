@@ -1,0 +1,15 @@
+\chapter*{Conclusion}
+
+In our thesis, we have first researched the relevant literature and introduced the topic of space debris, where we explained the theory, its origin and the current population in space. We also reviewed the current state of the space object recognition methods. 
+In Chapter \ref{chap:astronomicaldata} we described the format and appearance of astronomical data obtained from space debris observations. We went into heavy detail about what features are present in the images as well as what noises and defects affect them. 
+The gained knowledge proved useful when designing the generator of synthetic images - starGen.
+Based on the reviewed existing solutions to space object recognition, we proposed the architecture of the convolutional neural network defined in Chapter \ref{chap:softwaredesign}. We also described the various parameters of the network that need to be adjusted as well as some techniques to improve the generalization of our model. 
+The implementation and the project structure of the generator and the network are explained in Chapter \ref{chap:implementation}. Next, we described how we generated synthetic images for the training purposes of our network. We illustrated the appearance of each object, described the algorithm used to simulate the desired profile and established the object's parameters. 
+
+In Chapter \ref{chap:research} we have gone through an extensive process of tuning the network parameters and testing various regularization techniques. We have trained over 200 models on synthetic data and selected the one most suitable for the task. The model achieved 73 \% accuracy on the testing dataset comprised of real images. 
+We also deployed two approaches to fine-tune our model with real images and provided the results in Chapter \ref{chap:results}. We have shown that incorporating real images in the training process has significantly improved the performance of our model which achieved an accuracy of 89 \%. At last, our model is compared to the state-of-the-art ResNet-18 network, which achieved slightly worse results when training with just synthetic data but outperformed our model when adding the real images. 
+
+In future work, our research can be used to further improve the network by extending the scope of recognized objects. Our network can also be deployed as a subnetwork in a region-based convolutional neural network that includes the object localization step. Apart from the network, the implemented generator may be helpful for future works that require a large amount of astronomical data. 
+
+
+
