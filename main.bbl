@@ -1,5 +1,16 @@
 \begin{thebibliography}{1}
 
+\bibitem{NNFarkas}
+Igor Farkaš.
+\newblock Neural networks.
+\newblock page 192. Knižničné a edičné centrum FMFI UK, 2011.
+
+\bibitem{simpleNN}
+Dominique~A. Heger.
+\newblock An introduction to artificial neural networks ( ann )-methods ,
+  abstraction , and usage.
+\newblock 2015.
+
 \bibitem{history}
 Bohdan Macukow.
 \newblock Neural networks -- state of art, brief history, basic models and

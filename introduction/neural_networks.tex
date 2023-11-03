@@ -10,21 +10,84 @@ In 1943 neurophysiologist Warren McCulloch and mathematician, Walter Pitts devel
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.9\textwidth9]{images/simpleneuron.png}
-\caption{Model of an artificial neuron according to McCulloch and Pitts}
+\includegraphics[width=0.9\textwidth]{images/firstneuron.png}
+\caption{Model of an artificial neuron according to McCulloch and Pitts \cite{NNFarkas}}
 \end{figure}
 
-blabla
+After initial period of enthusiasm and few other contributions to the field, period of frustration followed. During that time there were only few researchers continued work on solving problems with neural networks. During this time Klopf developed basis for learning and Werbos developed back-propagation algorithm.
+
+This period lasted up to the 1980s, when multiple new contributions renewed wider interest.Hopfield described recurrent neural networks and presented paper \textit{Neural Networks and Physical Systems with Emergent Collective Computational Abilities}.\citep{history}
+
+Neural networks become recently much more publicly know, caused by advances in computing power allowing much bigger number of neurons. It allowed for much more complex tasks as image generation from natural language prompts or chatbots capable of deeper conversations.
 
 \subsection{Different models of neural networks}
 
-There are many different types of neural networks with different advantages and disadvantages for different purposes.
+There are hundreds of different models and architectures of neural networks with different advantages and disadvantages for different purposes. Some of the more basic are:
 
 \begin{itemize}
-    \item Feedforward neural network (FNN)
-    \item Convolutional neural network (CNN)
-    \item Recurrent neural network (RNN)
-    \item Self-Organizing Maps (SOM)
-    \item Radial Basis Function Network (RBFN)
-    \item Autoencoder and Autodecoder
+    \item Single perceptrons
+    \item Multi-layer perceptrons
+    \item Recurrent neural network
+    \item Self-Organizing Maps
+    \item Radial Basis Function Network
+    \item Hopfield autoassociative memory
 \end{itemize}
+
+In practise, multiple architectures are often combined to achieve desired outcome.\citep{NNFarkas}
+
+\subsubsection{Simple perceptron}
+It was proposed in 1958 by American psychologist, F. Rosenblatt. It is more general model, with free parameters, stochastic connectivity and threshold elements.\citep{NNFarkas}
+
+\begin{figure}[h]
+\label{simplePer}
+\centering
+\includegraphics[width=0.7\textwidth]{images/simpleneuron.png}
+\includegraphics[width=0.2\textwidth]{images/simplelayer.png}
+\caption{Model of simple perceptron and layer of simple perceptrons \cite{NNFarkas}}
+\end{figure}
+
+Activation of this perceptron consists of weighted sum of inputs, from which we subtract threshold $\theta$ (\ref{act1}). Result is then run through activation function, either uni/bipolar for discrete perceptron or sigmoid for continuous perceptron. In practise, threshold is expressed as another weighted input $x_{n+1}$, with static value of -1(\ref{act2}).
+
+\begin{equation}
+\label{act1}
+o_j = f(\sum_{i=1}^n w_{ij}x_i - \theta_j)
+\end{equation}
+\begin{equation}
+\label{act2}
+o_j = f(\sum_{i=1}^{n+1} w_{ij}x_i)
+\end{equation}
+
+Learning rule for adjust weights in discrete perceptron:
+\begin{equation}
+\label{learn1}
+w_j(t+1) = w_j(t) + \alpha(d - y)x_j
+\end{equation}
+
+And for continuous perceptrons:
+\begin{equation}
+\label{learn1}
+w_j(t+1) = w_j(t) + \alpha(d^{(p)} - y^{(p)})f'x_j
+\end{equation}
+
+Simple perceptron can solve only lineary separable classes. This caused loss of interest in neural networks in many researchers 1970s as many real problems are lineary non-separable, thus simple perceptron cannot be used to solve them.
+
+\subsubsection{Multi-layer perceptron}
+Probably one of most used architectures today. Contains additional hidden layers and is generalisation of simple perceptrons. Originates from \textit{Rumelhart \& McClelland: Parallel distributed processing} but was earlier described by Werbos in 1974. It is response to critique on perceptrons.\cite{NNFarkas}
+
+Activation function....
+
+\begin{equation}
+\label{act3}
+h_k = f(\sum_{j=1}^n v_{kj}x_j - \theta)
+\end{equation}
+\begin{equation}
+\label{act4}
+y_i = f(\sum_{j=1}^{q+1} w_{ik}h_k)
+\end{equation}
+
+\begin{figure}
+\label{multiNet}
+\centering
+\includegraphics[width=0.7\textwidth]{images/multineuron.png}
+\caption{Model of multi-layer neural network \cite{NNFarkas}}
+\end{figure}

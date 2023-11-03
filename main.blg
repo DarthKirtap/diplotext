@@ -5,44 +5,47 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
-You've used 3 entries,
+Warning--empty booktitle in NNFarkas
+Warning--empty booktitle in simpleNN
+You've used 5 entries,
             2118 wiz_defined-function locations,
-            518 strings with 4557 characters,
-and the built_in function-call counts, 1170 in all, are:
-= -- 114
-> -- 51
-< -- 2
-+ -- 19
-- -- 16
-* -- 71
-:= -- 191
-add.period$ -- 10
-call.type$ -- 3
-change.case$ -- 16
+            530 strings with 4771 characters,
+and the built_in function-call counts, 1722 in all, are:
+= -- 167
+> -- 65
+< -- 3
++ -- 26
+- -- 20
+* -- 91
+:= -- 276
+add.period$ -- 17
+call.type$ -- 5
+change.case$ -- 24
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 52
-empty$ -- 94
-format.name$ -- 16
-if$ -- 258
+cite$ -- 7
+duplicate$ -- 85
+empty$ -- 150
+format.name$ -- 20
+if$ -- 385
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 3
-newline$ -- 18
-num.names$ -- 8
-pop$ -- 19
+int.to.str$ -- 5
+missing$ -- 5
+newline$ -- 28
+num.names$ -- 12
+pop$ -- 36
 preamble$ -- 1
-purify$ -- 13
+purify$ -- 19
 quote$ -- 0
-skip$ -- 42
+skip$ -- 64
 stack$ -- 0
-substring$ -- 62
-swap$ -- 18
-text.length$ -- 2
+substring$ -- 79
+swap$ -- 27
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
-warning$ -- 0
-while$ -- 12
-width$ -- 4
-write$ -- 37
+type$ -- 20
+warning$ -- 2
+while$ -- 17
+width$ -- 6
+write$ -- 57
+(There were 2 warnings)
