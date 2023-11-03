@@ -46,7 +46,7 @@ It was proposed in 1958 by American psychologist, F. Rosenblatt. It is more gene
 \caption{Model of simple perceptron and layer of simple perceptrons \cite{NNFarkas}}
 \end{figure}
 
-Activation of this perceptron consists of weighted sum of inputs, from which we subtract threshold $\theta$ (\ref{act1}). Result is then run through activation function, either uni/bipolar for discrete perceptron or sigmoid for continuous perceptron. In practise, threshold is expressed as another weighted input $x_{n+1}$, with static value of -1(\ref{act2}).
+Activation of this perceptron consists of weighted sum of inputs, from which we subtract threshold $\theta$ (\ref{act1}). Result is then run through activation function, either uni/bipolar for discrete perceptron or sigmoid for continuous perceptron. In practise, threshold is expressed as another weighted input $x_{n+1}$, with static value of -1, commonly called bias(\ref{act2}).
 
 \begin{equation}
 \label{act1}
@@ -65,20 +65,22 @@ w_j(t+1) = w_j(t) + \alpha(d - y)x_j
 
 And for continuous perceptrons:
 \begin{equation}
-\label{learn1}
+\label{learn2}
 w_j(t+1) = w_j(t) + \alpha(d^{(p)} - y^{(p)})f'x_j
 \end{equation}
+
+Where $\alpha(Alpha)$ represents learning rate.
 
 Simple perceptron can solve only lineary separable classes. This caused loss of interest in neural networks in many researchers 1970s as many real problems are lineary non-separable, thus simple perceptron cannot be used to solve them.
 
 \subsubsection{Multi-layer perceptron}
-Probably one of most used architectures today. Contains additional hidden layers and is generalisation of simple perceptrons. Originates from \textit{Rumelhart \& McClelland: Parallel distributed processing} but was earlier described by Werbos in 1974. It is response to critique on perceptrons.\cite{NNFarkas}
+Multi-layer perceptron(MLP) is probably one of most used architectures today. It is generalisation of simple perceptrons and it contains additional hidden layers. MLP originates from \textit{Rumelhart \& McClelland: Parallel distributed processing} but was earlier described by Werbos in 1974. It is response to critique on perceptrons.\cite{NNFarkas}
 
-Activation function....
+In MLP Activations are similar to activations in simple perceptron. Their distinction comes from addition of hidden layers and additional weights. Due this change, output layer is calculated from hidden layer, instead of inputs.
 
 \begin{equation}
 \label{act3}
-h_k = f(\sum_{j=1}^n v_{kj}x_j - \theta)
+h_k = f(\sum_{j=1}^{n+1} v_{kj}x_j)
 \end{equation}
 \begin{equation}
 \label{act4}
@@ -91,3 +93,18 @@ y_i = f(\sum_{j=1}^{q+1} w_{ik}h_k)
 \includegraphics[width=0.7\textwidth]{images/multineuron.png}
 \caption{Model of multi-layer neural network \cite{NNFarkas}}
 \end{figure}
+
+Activation functions on hidden layers doesn't have similar constrains as output function, but linear function should not be used, as it doesn't add any depth to network. Common activation functions are sigmoid or hyperbolic tangent function.
+
+Learning of MLP uses back-propagation algorithm with different equations for hidden and output layers. Weight adjustments are calculated backwards from output layers to the first hidden layer.\cite{NNFarkas}
+
+\begin{equation}
+\label{learn3}
+w_{ik}(t+1) = w_{ik}(t) + \alpha\delta_ih_k\text{ where }\delta_i = (d_i-y_i)f'_i
+\end{equation}
+
+And for continuous perceptrons:
+\begin{equation}
+\label{learn4}
+v_{kj}(t+1) = v_{kj}(t) + \alpha\delta_kx_j\text{ where }\delta_k = (\sum_iw_{ik}\delta_i)f'_k
+\end{equation}
