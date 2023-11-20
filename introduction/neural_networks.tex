@@ -27,6 +27,7 @@ There are hundreds of different models and architectures of neural networks with
 \begin{itemize}
     \item Single perceptrons
     \item Multi-layer perceptrons
+    \item Convolutional neural network
     \item Recurrent neural network
     \item Self-Organizing Maps
     \item Radial Basis Function Network
@@ -98,12 +99,14 @@ Activation functions on hidden layers doesn't have similar constrains as output 
 
 Learning of MLP uses back-propagation algorithm with different equations for hidden and output layers. Weight adjustments are calculated backwards from output layers to the first hidden layer.\cite{NNFarkas}
 
+Equation for calculating Hidden-output weights:
+
 \begin{equation}
 \label{learn3}
 w_{ik}(t+1) = w_{ik}(t) + \alpha\delta_ih_k\text{ where }\delta_i = (d_i-y_i)f'_i
 \end{equation}
 
-And for continuous perceptrons:
+And for Input-hidden weights:
 \begin{equation}
 \label{learn4}
 v_{kj}(t+1) = v_{kj}(t) + \alpha\delta_kx_j\text{ where }\delta_k = (\sum_iw_{ik}\delta_i)f'_k

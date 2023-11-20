@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}
 
+\bibitem{CNN}
+Arden Dertat.
+\newblock Applied deep learning - part 4: Convolutional neural networks.
+\newblock 2017.
+
 \bibitem{NNFarkas}
 Igor Farkaš.
 \newblock Neural networks.
