@@ -30,6 +30,11 @@ Hai Nguyen and Hung La.
 \newblock In {\em 2019 Third IEEE International Conference on Robotic Computing
   (IRC)}, pages 590--595, 2019.
 
+\bibitem{RL}
+Richard~S. Sutton and Andrew~G. Barto.
+\newblock {\em Reinforcement Learning: An Introduction}.
+\newblock The MIT Press, second edition, 2018.
+
 \bibitem{activerobot}
 Youssef Zaky, Gaurav Paruthi, Bryan Tripp, and James Bergstra.
 \newblock Active perception and representation for robotic manipulation.

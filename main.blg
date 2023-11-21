@@ -8,45 +8,45 @@ Database file #1: references.bib
 Warning--empty booktitle in CNN
 Warning--empty booktitle in NNFarkas
 Warning--empty booktitle in simpleNN
-You've used 6 entries,
+You've used 7 entries,
             2118 wiz_defined-function locations,
-            535 strings with 4854 characters,
-and the built_in function-call counts, 1950 in all, are:
-= -- 186
-> -- 72
+            542 strings with 4959 characters,
+and the built_in function-call counts, 2209 in all, are:
+= -- 210
+> -- 85
 < -- 3
-+ -- 29
-- -- 22
-* -- 99
-:= -- 314
-add.period$ -- 20
-call.type$ -- 6
-change.case$ -- 28
++ -- 34
+- -- 26
+* -- 113
+:= -- 359
+add.period$ -- 23
+call.type$ -- 7
+change.case$ -- 33
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 98
-empty$ -- 176
-format.name$ -- 22
-if$ -- 434
+cite$ -- 10
+duplicate$ -- 110
+empty$ -- 198
+format.name$ -- 26
+if$ -- 489
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 6
-newline$ -- 33
-num.names$ -- 14
-pop$ -- 45
+int.to.str$ -- 7
+missing$ -- 8
+newline$ -- 38
+num.names$ -- 16
+pop$ -- 53
 preamble$ -- 1
-purify$ -- 22
+purify$ -- 26
 quote$ -- 0
-skip$ -- 71
+skip$ -- 78
 stack$ -- 0
-substring$ -- 84
-swap$ -- 28
+substring$ -- 89
+swap$ -- 29
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 24
+type$ -- 26
 warning$ -- 3
-while$ -- 19
-width$ -- 7
-write$ -- 66
+while$ -- 21
+width$ -- 8
+write$ -- 77
 (There were 3 warnings)

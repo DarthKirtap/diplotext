@@ -6,7 +6,7 @@ In the realm of artificial intelligence, learning methods can be categorized int
 
 \textbf{Unsupervised learning} learns on unlabelled datasets. It discovers inherent patterns or structures within the data. Common tasks include clustering similar data points or reducing dataset dimensionality. Unsupervised learning is used for exploring large datasets, uncovering hidden relationships, and helping in data visualization.
 
-\textbf{Reinforcement learning} learns from interaction with environment through actions and rewards. Its goal is mapping environment states to actions order to maximize long term reward. It is used in robotics, self-driving cars or playing games. One of main characteristics is trial and error.
+\textbf{Reinforcement learning} learns from interaction with environment through actions and rewards. Its goal is mapping environment states to actions order to maximize long term reward. It is used in robotics, self-driving cars or playing games. Two main characteristics of RL are trial and error and delayed reward.
 
 \begin{figure}
 \label{multiNet}
@@ -15,4 +15,13 @@ In the realm of artificial intelligence, learning methods can be categorized int
 \caption{Different categories of AI learning methods \cite{NNFarkas}}
 \end{figure}
 
-\subsubsection{Introduction}
+\subsection{Introduction to RL}
+
+Reinforcement learning is mapping actions for every state in order to maximize rewards. Rewards are not know to the learner and have to be discovered by trying them. In more complex cases, actions affects all subsequent states and rewards.
+
+Reinforcement learning simultaneously refers to problem, class of solution methods and field that studies this problem.
+
+In RL problem, a learning agent must be able to sense state of the environment, take actions that can affect said state and have goal or goals relating to the state of environment.
+
+Reinforcement learning is different from supervised learning. Supervised learning learns from already mapped set of data, where every label has a correct action and model tries to generalise for previously unseen data, for example correctly categorize animal in picture or calculate $y$ from input $x$. Despite its usefulness, it is inadequate for learning from interactions, as it is often impractical to obtain representative examples of desired action for all situations in which the agent has to act. Agent must be able to learn from its own experience in order to find best action for every state.\cite{RL}
+
