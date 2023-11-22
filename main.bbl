@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}
 
+\bibitem{NNtrain}
+Pragati Baheti.
+\newblock Train test validation split: How to \& best practices [2023].
+\newblock 2023.
+
 \bibitem{CNN}
 Arden Dertat.
 \newblock Applied deep learning - part 4: Convolutional neural networks.
@@ -29,6 +34,13 @@ Hai Nguyen and Hung La.
 \newblock Review of deep reinforcement learning for robot manipulation.
 \newblock In {\em 2019 Third IEEE International Conference on Robotic Computing
   (IRC)}, pages 590--595, 2019.
+
+\bibitem{handgun}
+Jesus Ruiz-Santaquiteria, Alberto Velasco-Mata, Noelia Vallez, Oscar Deniz, and
+  Gloria Bueno.
+\newblock Improving handgun detection through a combination of visual features
+  and body pose-based data.
+\newblock {\em Pattern Recognition}, 136:109252, 2023.
 
 \bibitem{RL}
 Richard~S. Sutton and Andrew~G. Barto.
