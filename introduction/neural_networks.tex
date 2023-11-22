@@ -131,7 +131,23 @@ One training iteration usually consist of these steps:
   \end{enumerate}
 \end{itemize}
 
-This iteration continues until certain stopping criteria is meet, usually number of passed epochs or accuracy of model.
+This iteration continues until certain stopping criteria is meet, usually number of passed epochs or accuracy of model. Properly setting stopping criteria is important in order to prevent overfitting or underfitting of model for certain data. \textbf{Underfitting} is when model didn't properly capture desired problem. \textbf{Overfitting} is when model is trained very well for training data, but reacts too much on random outliers or noise, making it very inaccurate in generalisation (Fig. \ref{fit}). \cite{overfit}
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{images/overfit.png}
+\caption{Underfit, Good fit and Overfit \cite{overfit}}
+\label{fit}
+\end{figure}
+
+In relation of correct fitting and training length, despite training error decreasing, at certain point validation error stops decreasing and start increasing, as model is becoming more overfit, reacting to noise in the dataset.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{images/trainfit.png}
+\caption{Error in relation to training length \cite{overfit}}
+\label{fit}
+\end{figure}
 
 This is also called \textit{sequential training}. Other used type of training is called \textit{batch training}. In batch, instead of iterating through input-output pairs is everything calculated in parallel. This is done through matrix multiplication and can significantly speed up calculations, at cost of higher memory requirement and harder implementation.\cite{NNFarkas}
 
@@ -155,4 +171,25 @@ Data augmentations refers to changing available dataset to better suit task need
 \label{pose}
 \end{figure}
 
+Although we could use dataset as is, and training error could be sufficiently minimalised. Model wouldn't be good enough at generalisation. This is why datasets are split into two or three parts:
 
+\begin{itemize}
+  \item Training set
+  \item Validation set
+  \item Testing set
+\end{itemize}
+
+\textbf{Training set} is used for training itself - it is used every epoch and it directly affects model weights.
+\textbf{Validation set} is used for evaluation of model and fine tune its hyperparameters.
+\textbf{Testing set} is used for measurement of model performance after training was finished (Fig. \ref{tvt}).
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{images/tvt.png}
+\caption{Difference between training, validation and testing sets \cite{NNtrain}}
+\label{tvt}
+\end{figure}
+
+There is no hard rule on how dataset should be split as it depends on model and task, but in general, $80\% - 10\% - 10\%$ for training, validation and testing is good split to start from.\cite{NNtrain}
+
+Simplest way to distribute data between splits is \textbf{Random sampling}. In random sampling data are picked at random from full dataset. This work best for balanced datasets, but in unbalanced ones it can cause bias towards one category. For example in dataset with 800 images of dogs and 200 of cats, training set could get most of dog images, making cat detection unreliable. For these tasks \textbf{Stratified sampling} is used. In stratified sampling, data is picked from each category separately in same ratio as split between training, validation and testing sets.\cite{NNtrain}

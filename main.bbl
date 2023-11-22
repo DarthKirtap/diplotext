@@ -1,9 +1,15 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{NNtrain}
 Pragati Baheti.
 \newblock Train test validation split: How to \& best practices [2023].
 \newblock 2023.
+
+\bibitem{overfit}
+Anup Bhande.
+\newblock What is underfitting and overfitting in machine learning and how to
+  deal with it.
+\newblock 2018.
 
 \bibitem{CNN}
 Arden Dertat.

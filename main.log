@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.20)  22 NOV 2023 18:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.20)  22 NOV 2023 22:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -587,7 +587,11 @@ Package: easytable 2001/05/31v1.1
 File: l3backend-pdftex.def 2023-10-23 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count310
 \l__pdf_internal_box=\box65
-) (main.aux)
+) (main.aux
+
+LaTeX Warning: Label `fit' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
@@ -775,29 +779,46 @@ Package pdftex.def Info: images/multineuron.png  used on input line 94.
 (pdftex.def)             Requested size: 308.71106pt x 235.5111pt.
  [4 <./images/simpleneuron.png> <./images/simplelayer.png>] [5 <./images/multin
 euron.png>]
-<images/dataaug1.jpg, id=202, 386.29274pt x 282.68442pt>
+<images/overfit.png, id=200, 542.025pt x 188.20313pt>
+File: images/overfit.png Graphic file (type png)
+<use images/overfit.png>
+Package pdftex.def Info: images/overfit.png  used on input line 138.
+(pdftex.def)             Requested size: 441.01773pt x 153.13577pt.
+<images/trainfit.png, id=203, 344.03531pt x 304.88907pt>
+File: images/trainfit.png Graphic file (type png)
+<use images/trainfit.png>
+Package pdftex.def Info: images/trainfit.png  used on input line 147.
+(pdftex.def)             Requested size: 264.61333pt x 234.50478pt.
+ [6 <./images/overfit.png>]
+<images/dataaug1.jpg, id=222, 386.29274pt x 282.68442pt>
 File: images/dataaug1.jpg Graphic file (type jpg)
 <use images/dataaug1.jpg>
-Package pdftex.def Info: images/dataaug1.jpg  used on input line 146.
+Package pdftex.def Info: images/dataaug1.jpg  used on input line 162.
 (pdftex.def)             Requested size: 308.71106pt x 225.9149pt.
-<images/dataaug2.jpg, id=205, 466.87698pt x 127.27194pt>
+<images/dataaug2.jpg, id=225, 466.87698pt x 127.27194pt>
 File: images/dataaug2.jpg Graphic file (type jpg)
 <use images/dataaug2.jpg>
-Package pdftex.def Info: images/dataaug2.jpg  used on input line 153.
+Package pdftex.def Info: images/dataaug2.jpg  used on input line 169.
 (pdftex.def)             Requested size: 308.71106pt x 84.15509pt.
-) (introduction/active_vision.tex [6] [7 <./images/dataaug1.jpg> <./images/data
-aug2.jpg>]
-<images/rl.png, id=224, 850.67813pt x 512.66531pt>
+<images/tvt.png, id=229, 622.325pt x 497.86pt>
+File: images/tvt.png Graphic file (type png)
+<use images/tvt.png>
+Package pdftex.def Info: images/tvt.png  used on input line 188.
+(pdftex.def)             Requested size: 308.71106pt x 246.96942pt.
+) (introduction/active_vision.tex
+[7 <./images/trainfit.png>] [8 <./images/dataaug1.jpg> <./images/dataaug2.jpg> 
+<./images/tvt.png>]
+<images/rl.png, id=248, 850.67813pt x 512.66531pt>
 File: images/rl.png Graphic file (type png)
 <use images/rl.png>
 Package pdftex.def Info: images/rl.png  used on input line 14.
 (pdftex.def)             Requested size: 396.91325pt x 239.20045pt.
- [8 <./images/rl.png>]) [9]) (main.bbl)
+ [9]) [10 <./images/rl.png>]) (main.bbl)
 
 Package caption Warning: Unused \captionsetup[sub] on input line 34.
 See the caption package documentation for explanation.
 
-[10
+[11
 
 
 ] (main.aux)
@@ -805,14 +826,18 @@ See the caption package documentation for explanation.
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 361595D0639F5C089ECA52BDF6896F23;1090.
  ) 
 Here is how much of TeX's memory you used:
- 14354 strings out of 474591
- 226695 string characters out of 5755592
+ 14385 strings out of 474591
+ 227321 string characters out of 5755592
  1933533 words of memory out of 5000000
- 36219 multiletter control sequences out of 15000+600000
+ 36245 multiletter control sequences out of 15000+600000
  571439 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,6n,67p,712b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -830,9 +855,9 @@ i8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Pr
 ogram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/t
 ype1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (20 pages, 1034243 bytes).
+Output written on main.pdf (21 pages, 1253065 bytes).
 PDF statistics:
- 587 PDF objects out of 1000 (max. 8388607)
- 69 named destinations out of 1000 (max. 500000)
- 102 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 614 PDF objects out of 1000 (max. 8388607)
+ 74 named destinations out of 1000 (max. 500000)
+ 117 words of extra memory for PDF output out of 10000 (max. 10000000)
 
