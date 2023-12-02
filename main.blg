@@ -10,45 +10,45 @@ Warning--empty booktitle in overfit
 Warning--empty booktitle in CNN
 Warning--empty booktitle in NNFarkas
 Warning--empty booktitle in simpleNN
-You've used 10 entries,
+You've used 12 entries,
             2118 wiz_defined-function locations,
-            556 strings with 5378 characters,
-and the built_in function-call counts, 3066 in all, are:
-= -- 284
-> -- 127
+            570 strings with 5963 characters,
+and the built_in function-call counts, 4218 in all, are:
+= -- 385
+> -- 228
 < -- 3
-+ -- 51
-- -- 40
-* -- 163
-:= -- 508
-add.period$ -- 32
-call.type$ -- 10
-change.case$ -- 49
++ -- 91
+- -- 78
+* -- 277
+:= -- 711
+add.period$ -- 38
+call.type$ -- 12
+change.case$ -- 74
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 147
-empty$ -- 275
-format.name$ -- 40
-if$ -- 665
+cite$ -- 17
+duplicate$ -- 169
+empty$ -- 332
+format.name$ -- 78
+if$ -- 883
 int.to.chr$ -- 0
-int.to.str$ -- 10
-missing$ -- 11
-newline$ -- 53
-num.names$ -- 22
-pop$ -- 77
+int.to.str$ -- 12
+missing$ -- 13
+newline$ -- 63
+num.names$ -- 26
+pop$ -- 98
 preamble$ -- 1
-purify$ -- 39
+purify$ -- 62
 quote$ -- 0
-skip$ -- 98
+skip$ -- 112
 stack$ -- 0
-substring$ -- 122
-swap$ -- 32
+substring$ -- 190
+swap$ -- 34
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 38
+type$ -- 46
 warning$ -- 5
-while$ -- 28
-width$ -- 12
-write$ -- 106
+while$ -- 35
+width$ -- 14
+write$ -- 128
 (There were 5 warnings)

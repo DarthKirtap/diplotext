@@ -2,13 +2,13 @@
 
 In the realm of artificial intelligence, learning methods can be categorized into three types: supervised learning, unsupervised learning, and reinforcement learning, each having its own uses and advantages.
 
-\textbf{Supervised learning} learns from a labelled dataset, where each input has a corresponding desired output. The goal is generalize and make accurate predictions for new, unseen data. This method is commonly used for regression and classification tasks, where the algorithm iteratively adjusts its parameters to minimize the difference between predicted and true values. Accuracy of predictions is heavily dependent of quality of dataset.
+\textbf{Supervised learning} learns from a labelled dataset, where each input has a corresponding desired output. The goal is to minimize the difference between values predicted by the model and true labels from dataset and generalize for new, unseen data . This method is commonly used for regression and classification tasks (function approximation, pose detection). Prediction accuracy is heavily upon quality and size of the dataset.
 
-\textbf{Unsupervised learning} learns on unlabelled datasets. It discovers inherent patterns or structures within the data. Common tasks include clustering similar data points or reducing dataset dimensionality. Unsupervised learning is used for exploring large datasets, uncovering hidden relationships, and helping in data visualization.
+\textbf{Unsupervised learning} learns on unlabelled datasets. It discovers inherent patterns or structures within the data without any explicit guidance or instruction. . Common tasks include clustering similar data points or reducing dataset dimensionality. Unsupervised learning is used for exploring large datasets, uncovering hidden relationships, and helping in data visualization. 
 
 \textbf{Reinforcement learning} learns from interaction with environment through actions and rewards. Its goal is mapping environment states to actions order to maximize long term reward. It is used in robotics, self-driving cars or playing games. Two main characteristics of RL are trial and error and delayed reward.
 
-\begin{figure}
+\begin{figure}[h]
 \label{learningAI}
 \centering
 \includegraphics[width=0.9\textwidth]{images/rl.png}
@@ -17,11 +17,53 @@ In the realm of artificial intelligence, learning methods can be categorized int
 
 \subsection{Introduction to RL}
 
-Reinforcement learning is mapping actions for every state in order to maximize rewards. Rewards are not know to the learner and have to be discovered by trying them. In more complex cases, actions affects all subsequent states and rewards.
+It is mapping actions for every state in order to maximize rewards. Rewards are not know to the learner and have to be discovered by trying them. In more complex cases, actions affects all subsequent states and rewards.
 
 Reinforcement learning simultaneously refers to problem, class of solution methods and field that studies this problem.
 
 In RL problem, a learning agent must be able to sense state of the environment, take actions that can affect said state and have goal or goals relating to the state of environment.
 
 Reinforcement learning is different from supervised learning. Supervised learning learns from already mapped set of data, where every label has a correct action and model tries to generalise for previously unseen data, for example correctly categorize animal in picture or calculate $y$ from input $x$. Despite its usefulness, it is inadequate for learning from interactions, as it is often impractical to obtain representative examples of desired action for all situations in which the agent has to act. Agent must be able to learn from its own experience in order to find best action for every state.\cite{RL}
+
+A good way to understand RL is through examples from real life:
+\begin{itemize}
+  \item Newborn gazelle  calf learning how to run in under half hour
+  \item Baby learning how to stack cubes into high tower
+  \item Kid learning how to ride a bicycle
+  \item Chess player learning how to play chess 
+\end{itemize}
+
+In all this actions, decision-making agent learns through interaction with environment, despite uncertainty about it. Falling on the ground or cube tower collapsing provides negative reward and reaching partial goals give positive reward. Actions may affect the future state of the environment (e.g., the next chess position, future position of cube), thereby affecting actions and opportunities available to the agent. Correct choice of action requires taking into account both immediate future and indirect, delayed consequence thus requiring foresight or planning.\cite{RL}
+
+\subsection{Elements of Reinforcement Learning}
+There are four basic subelements of reinforcement learning beyond agent and environment:
+\begin{itemize}
+  \item Policy - defines behaviour
+  \item Reward signal - defines goal and rewards
+  \item Value function - defines what is good in long term
+  \item Model of environment - optional element that mimics environment
+\end{itemize}
+
+\textbf{Policy} defines agent behaviour at given time - it is mapping of actions from perceived states of environment. It can be as simple as lookup table or it may involve complex calculations. Instead of one action, policies often return probability for each action. Policy corresponds to stimulus–response rules or association from psychology.\cite{RL}
+
+\textbf{Reward signal} defines goal of a reinforcement learning problem. After each action, the environment sends to agent evaluation of current state - \textbf{reward}. Reward defines good and bad events for the agent, as agent tries to maximize total reward over long run.The reward signal is primary basis for alteration of the policy. If action had low reward, probability of it being taken is lowered and similarly, if action brought high reward, its probability in policy is heightened. We can think of rewards as pleasure or pain.\cite{RL}
+
+\textbf{Value function} indicates what is good in long - it is total amount of expected reward agent can  accumulate from this state. Values indicates long term desirability of states, based on possible future states and their rewards. States can have high reward, but are followed by more states with lower ones. On the other hand different state have lower one, but allows for better future states. 
+
+Example is building tower from blocks. Always placing block on top will lead to high tower and big immediate reward, but will quickly lead to collapse. On the other hand, creating stronger foundations brings little reward, but allows for much higher tower and reward in the end.
+
+Without rewards, we could not get values, and values only purpose is to maximize reward. But it is values we use during evaluation of decisions - we seek actions that will bring states with highest vale and not reward. Unfortunately, it is harder to determine values, as they must be estimated from observations over entire agent lifetime.\cite{RL}
+
+\textbf{Model} of environment mimics the behaviour of the environment. It allows inferences to be made about how the environment will be affected by agent actions. For example, given a state and action, the model might predict the next state and reward. They are used for planning - consideration of future situations before they are experienced. Methods using model are called \textit{method-based}. Opposite of that are \textit{model-free} methods, based on trial and error and almost viewed as opposite of planning.\cite{RL}
+
+\subsection{Tabular Solution Methods}
+
+Tabular methods are used for tasks, where sate and action spaces can be represented as arrays or tables, thus methods can often find optimal value function and optimal policy. For this method, \textbf{k -armed Bandit Problem} is often used as example, it is analogy to slot machine, often called "One armed bandit". In this problem, agent is choices of actions - "levers", each with its own reward distribution (Fig. \ref{badit}). Goal of agent is to maximize total reward over multiple steps by focusing on best lever. \cite{RL}
+
+\begin{figure}[h]
+\label{badit}
+\centering
+\includegraphics[width=0.9\textwidth]{images/bandit.png}
+\caption{Distribution of rewards of ten levers \cite{RL}}
+\end{figure}
 

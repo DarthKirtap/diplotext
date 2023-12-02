@@ -153,9 +153,11 @@ This is also called \textit{sequential training}. Other used type of training is
 
 \subsubsection{Datasets}
 
+Dataset is a collection of structured data used for various purposes such as analysis, research, or machine learning.
+
 Selection of proper dataset is crucial for training process - dataset should properly represent data from problem. In practise, getting ideal datasets is complicated and often impossible and contain too small sample of data. This can be partially corrected by using data augmentation. 
 
-Data augmentations refers to changing available dataset to better suit task needs or generating new data based on present one. As example, in article \textit{Improving handgun detection through a combination of visual features and body pose-based data} \cite{handgun}, authors edited original dataset of high quality images by editing lighting and "zooming out" to make humans on them appear smaller \ref{cctv}. This changes simulated of CCTVs, that often cover poorly lit big areas. They also used generation of new data by flattening 3D pose data to 2D from multiple points of view \ref{pose}.
+Data augmentations refers to changing available dataset to better suit task needs or generating new data based on present one. As example, in article \textit{Improving handgun detection through a combination of visual features and body pose-based data} \cite{handgun}, authors edited original dataset of high quality images by editing lighting and "zooming out" to make humans on them appear smaller (Fig. \ref{cctv}). This changes simulated of CCTVs, that often cover poorly lit big areas. They also used generation of new data by flattening 3D pose data to 2D from multiple points of view (Fig. \ref{pose}).
 
 \begin{figure}
 \centering
@@ -171,7 +173,7 @@ Data augmentations refers to changing available dataset to better suit task need
 \label{pose}
 \end{figure}
 
-Although we could use dataset as is, and training error could be sufficiently minimalised. Model wouldn't be good enough at generalisation. This is why datasets are split into two or three parts:
+Although, we could use dataset for training of model as is, and training error could be sufficiently minimize . However, model may not be good enough at generalisation as we would be unable to detect overfitting. This is why datasets are commonly split into two or three parts:
 
 \begin{itemize}
   \item Training set
@@ -179,9 +181,10 @@ Although we could use dataset as is, and training error could be sufficiently mi
   \item Testing set
 \end{itemize}
 
-\textbf{Training set} is used for training itself - it is used every epoch and it directly affects model weights.
-\textbf{Validation set} is used for evaluation of model and fine tune its hyperparameters.
-\textbf{Testing set} is used for measurement of model performance after training was finished (Fig. \ref{tvt}).
+\textbf{Training set} is used for training itself - it is used every epoch and it directly affects model weights. Training sets are usually biggest from all three.
+\textbf{Validation set} is used for evaluation of model and fine tune its hyperparameters. It can be used after every epoch, or every few epochs, based on performance.
+\textbf{Testing set} is used for measurement of model performance after training was finished. It is usually used only once (Fig. \ref{tvt}).
+
 
 \begin{figure}
 \centering
@@ -190,6 +193,18 @@ Although we could use dataset as is, and training error could be sufficiently mi
 \label{tvt}
 \end{figure}
 
-There is no hard rule on how dataset should be split as it depends on model and task, but in general, $80\% - 10\% - 10\%$ for training, validation and testing is good split to start from.\cite{NNtrain}
+There is no hard rule on how dataset should be split as it depends on model and task, but in general, $80\% - 10\% - 10\%$ for training, validation and testing is good split to start from. Lowering amount of data for training increase training variance and with less data for validation/testing, model evaluation and performance will have greater variance.\cite{NNtrain}
 
 Simplest way to distribute data between splits is \textbf{Random sampling}. In random sampling data are picked at random from full dataset. This work best for balanced datasets, but in unbalanced ones it can cause bias towards one category. For example in dataset with 800 images of dogs and 200 of cats, training set could get most of dog images, making cat detection unreliable. For these tasks \textbf{Stratified sampling} is used. In stratified sampling, data is picked from each category separately in same ratio as split between training, validation and testing sets.\cite{NNtrain}
+
+Different commonly used way to split dataset is \textbf{k-Fold Cross-Validation}. It is especially useful for smaller datasets where result of training can be strongly affected by randomness. In k-Fold Cross-Validation, dataset is split into $k$ non-overlapping subsets of same size. During training, one subset is used for validation and the remaining $k - 1$ are used for training. This process is repeated $k$ times for every subset. Results from k trainings are then averaged into one performance estimation - cross-validation coefficient, that is used to pick best model (Fig. \ref{kfold}). \cite{cross}
+
+\begin{figure}[h]
+\label{multiNet}
+\centering
+\includegraphics[width=0.7\textwidth]{images/cross.png}
+\caption{Example of 5-fold cross validation. \cite{sk}}
+\label{kfold}
+\end{figure}
+
+Basic k-Fold Cross-Validation can suffer from same class imbalance as random splitting. It is solved by using stratified k-Fold Cross-Validation, which preserves class ratios.

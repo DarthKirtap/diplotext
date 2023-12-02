@@ -35,11 +35,25 @@ Bohdan Macukow.
   Information Systems and Industrial Management}, pages 3--14, Cham, 2016.
   Springer International Publishing.
 
+\bibitem{cross}
+Jose~García Moreno-Torres, José~A. Saez, and Francisco Herrera.
+\newblock Study on the impact of partition-induced dataset shift on $k$-fold
+  cross-validation.
+\newblock {\em IEEE Transactions on Neural Networks and Learning Systems},
+  23(8):1304--1312, 2012.
+
 \bibitem{nvm}
 Hai Nguyen and Hung La.
 \newblock Review of deep reinforcement learning for robot manipulation.
 \newblock In {\em 2019 Third IEEE International Conference on Robotic Computing
   (IRC)}, pages 590--595, 2019.
+
+\bibitem{sk}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
 
 \bibitem{handgun}
 Jesus Ruiz-Santaquiteria, Alberto Velasco-Mata, Noelia Vallez, Oscar Deniz, and
