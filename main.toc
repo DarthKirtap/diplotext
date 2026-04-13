@@ -12,3 +12,6 @@
 \contentsline {subsection}{\numberline {1.2.1}Introduction to RL}{11}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}Elements of Reinforcement Learning}{11}{subsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.2.3}Tabular Solution Methods}{12}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Finite Markov Decision Processes}{14}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Policy gradient}{14}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}Proximal Policy Optimization Algorithms}{15}{subsection.1.2.6}%

@@ -67,3 +67,102 @@ Tabular methods are used for tasks, where sate and action spaces can be represen
 \caption{Distribution of rewards of ten levers \cite{RL}}
 \end{figure}
 
+In k -armed bandit problem, each action has expected - mean reward given, after said action is selected. It is called the value of action. Action selected at time $t$ is denoted as $A_t$ and reward is called $R_t$. Value of arbitrary action $a$ (denoted as $q_*(a)$) is expected reward:
+
+\begin{equation}
+q_*(a) \doteq \mathbb{E}[R_t|A_t=a]
+\end{equation}
+
+As we in practise lack true values of each action, we use estimates. Estimated value of action $a$ at time $t$ is denoted as $Q_t(a)$. Our goal is improve this estimate through multiple actions, to be s close s possible to real values $q_*(a)$.\cite{RL}
+
+If we have at least two possible actions, then there always bust be at least one action with highest estimated value. These are \textbf{greedy} actions and selecting one of them is called \textbf{exploitation} of current knowledge. Picking any other action is called \textbf{exploration} instead.\cite{RL}
+
+Exploitation is best choice for short term reward, as it always picks "best" action by current knowledge. Although it helps improve estimation of said best actions, it ignores others that can have higher true value, but lower estimation value. For that there is exploration, that improves estimation of all actions, but it brings smaller total reward. Because it is not possible to take both action during one step, we must find way to balance them, which is often dependant on multiple factors as precise values of the estimates, uncertainties, and the number of remaining steps. \cite{RL}
+
+\subsection{Finite Markov Decision Processes}
+
+Finite Markov Decision Processes, or finite MDPs, are a classical formalization of sequential decision making, where action influence not just immediate rewards, but also future possible states and their rewards. This means, in MDPs we need to deal with trade off between immediate reward and delayed reward. In tabular methods, we estimate value $q_*(a)$ for each action. In MDPs we estimate value $q_*(s, a)$ of each action $a$ in state $s$.\cite{RL}
+
+Agent and environment interacts at sequence of discrete time steps $t - 0,1,2,...$. At each step, agent receives representation of environment's state $S_t \in \mathcal{S}$ and selection of actions $A_t \in \mathcal{A}$. At next time step, it receives reward $R_{t+1} \in \mathcal{R} \subset \mathbb{R}$ and new  state $S_{t+1}$. This gives a rise to sequence:
+
+\begin{equation}
+S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3, S_3, A_3,... 
+\end{equation}
+
+In MDP all sets of states, actions, and rewards have a finite number of elements. Random variable $R_t$ and $S_t$ have defined discrete probability distribution and are dependent only on preceding state and action $S_{t-1}$ and $A_{t-1}$. So, for particular values of $s' \in \mathcal{S}$ and $r' \in \mathcal{R}$ at time $t$, their probability given values of action and state at $t-1$ is:
+
+\begin{equation}
+p(s',r|s,a) \doteq Pr{S_t=s',R_t=r|S_{t-1}, A_{t-1}}
+\end{equation}
+
+for all $s', s \in \mathcal{S}, r \in \mathcal{R}, and a \in \mathcal{A}(s)$.
+
+This is best viewed as restriction on the state, as state must include information about all past agent-environment interaction that is relevant for future. If state fulfill this requirement, we say it has \textbf{Markov property}.\cite{RL}
+
+\subsection{Policy gradient}
+
+Most of methods in reinforcement learning are not applicable to problems such as robotics or motor control, as they have problems with uncertain state information. Continuous states and actions in high dimensional spaces is also common source of problems. Most traditional reinforcement learning methods have no convergence guarantees.
+
+Policy gradient methods differ significantly. Although, uncertainty in the state still might degrade the performance of the policy, continuous states and actions can be easily dealt with in same way s discrete ones. Policy gradient methods also have guaranteed convergence, at least to local optimum. \cite{po}
+
+They are based upon gradient descent, similar to supervised learning. In an example pong task, agent has two possible action: UP and DOWN. After feeding state into neural network, we gain log probabilities (-1.2, -0.36) for both actions. In supervised learning we have label of correct action, in this example it is UP, so we enter gradient of 1.0 on log probability of UP and run backprob to calculate gradient vector (Fig \ref{sup}).\cite{poo}
+
+\begin{figure}[h]
+\label{sup}
+\centering
+\includegraphics[width=1\textwidth]{images/sup.png}
+\caption{Training with Supervised Learning \cite{poo}}
+\end{figure}
+
+In reinforcement learning we lack correct labels, so we cant immediately calculate correct gradient. After our network calculated probabilities, we sample action, for our example action DOWN and execute it simulation. We could immediately fill in gradient of 1.0 for DOWN and run backprob, but we don't know yet, if this action is good or not. For this reason we wait, usually until end of episode. Now we can take reward (+1 for winning, -1 for losing) and enter it as gradient for all action tken during that episode.
+
+\begin{figure}[h]
+\label{sup}
+\centering
+\includegraphics[width=1\textwidth]{images/rlsup.png}
+\caption{Training with Policy gradient \cite{poo}}
+\end{figure}
+
+\subsection{Proximal Policy Optimization Algorithms}
+
+Proximal Policy Optimization or PPO in short is one of many approaches to the Policy gradient as TRPO or ACER. PPO was successful improvement over TRPO developed by openAI. It improves training stability by avoiding too large policy updates, as too-big step can result in "falling of cliff" - new policy is significantly worse then old one. This can significantly slow down training.\cite{ppo}
+
+In simple policy gradient, we use this policy objective function:
+\begin{equation}
+L^{PG}(\theta) = E_t[log\pi_{\theta}(a_t|s_t)*A_t]
+\end{equation}
+
+However, with small step size, training was slow and with large, variability in training was too big.
+
+PPO uses modified function:
+
+\begin{equation}
+L^{CLIP}(\theta) = \hat{\mathbb{E}}_t[min(r_t(\theta)\hat{A_t}, clip(r_t(\theta),1 - \epsilon, 1 + \epsilon)\hat{A_t})]
+\end{equation}
+
+Where $r_t(\theta)$ denotes probability ratio between old and new policy:
+
+\begin{equation}
+r_t(\theta) = \frac{\pi_{\theta}(a_t|s_t)}{\pi_{\theta_{old}}(a_t|s_t)} so r_t(\theta_{old}) = 1
+\end{equation}
+
+Unclipped part of function then can be expressed as (CPI refers to conservative policy iterations):
+
+\begin{equation}
+L^{CPI}(\theta) = \hat{\mathbb{E}}_t[\frac{\pi_{\theta}(a_t|s_t)}{\pi_{\theta_{old}}(a_t|s_t)}] = \hat{\mathbb{E}}_t[r_t(\theta)\hat{A_t}]
+\end{equation}
+
+Although, this could lead to successful learning it will have excessively large policy update. This is solved by second part of function, $clip(r_t(\theta),1 - \epsilon, 1 + \epsilon)\hat{A_t}$. This term clips probability ratio and removes incentive for moving $r_t$ outside of interval $[1 - \epsilon, 1 + \epsilon]$. From this two, we pick minimum - lower or pessimistic bound.
+
+\begin{figure}[h]
+\label{sup}
+\centering
+\includegraphics[width=0.8\textwidth]{images/clip.png}
+\caption{Plots showing surrogate function $L^{clip}$ \cite{ppo}}
+\end{figure}
+
+If we are using neural network architecture, that  shares parameters between policy and value function, we must also add loss function combining policy surrogate and a value function error term. This is further  augmented by entropy, resulting n following function \cite{ppo}:
+
+\begin{equation}
+L^{CLIP + VF + S}_t(\theta) = \hat{\mathbb{E}}_t[L^{CPI}(\theta)_t - c_1L^{VF}_t(\theta) + c_2S[\pi_{\theta}](s_t)]
+\end{equation}

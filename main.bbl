@@ -27,6 +27,11 @@ Dominique~A. Heger.
   abstraction , and usage.
 \newblock 2015.
 
+\bibitem{poo}
+Andrej Karpathy.
+\newblock Deep reinforcement learning: Pong from pixels.
+\newblock 2016.
+
 \bibitem{history}
 Bohdan Macukow.
 \newblock Neural networks -- state of art, brief history, basic models and
@@ -55,12 +60,22 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
 \newblock Scikit-learn: Machine learning in {P}ython.
 \newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
 
+\bibitem{po}
+J.~Peters.
+\newblock {P}olicy gradient methods.
+\newblock {\em Scholarpedia}, 5(11):3698, 2010.
+\newblock revision \#137199.
+
 \bibitem{handgun}
 Jesus Ruiz-Santaquiteria, Alberto Velasco-Mata, Noelia Vallez, Oscar Deniz, and
   Gloria Bueno.
 \newblock Improving handgun detection through a combination of visual features
   and body pose-based data.
 \newblock {\em Pattern Recognition}, 136:109252, 2023.
+
+\bibitem{ppo}
+John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.
+\newblock Proximal policy optimization algorithms, 2017.
 
 \bibitem{RL}
 Richard~S. Sutton and Andrew~G. Barto.
